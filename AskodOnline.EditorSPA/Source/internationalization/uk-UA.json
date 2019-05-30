@@ -1,0 +1,20 @@
+{
+	"uk-UA": {
+	  "translation": {
+		"documentChanged": "Зберегти документ в базі даних?",
+		"attention": "Увага",
+		"saveNewVersion": "Зберегти як нову версію",
+		"saveCurrentVersion": "Зберегти як поточну версію",
+		"documentChangedPopUp": "Користувач {{ name }} вніс зміни до документу. Документ буде оновлено",
+		"cancelBtn": "Скасувати",
+		"UserListHeader": "Користувачі",
+		"saveCurrentVersionSussecced": "Файл успішно збережений у базу даних як поточна версія",
+		"saveNewVersionSussecced": "Файл успішно збережений у базу даних як нова версія",
+		"loadLastSavedVersionSussecced": "Файл був повернутий до останнього збереженого стану",
+		"loadLastSavedVersionSusseccedForClients": "Корисутвач {{ name }} повернув файл до останнього збереженого стану",
+		"Continue": "Продовжити",
+		"DocumentLostChanges": "У разі продовження документ буде повернений до останнього збереженого Вами стану для всіх користувачів, які в даний момент працюють з документом"
+
+	  }
+	}
+  }

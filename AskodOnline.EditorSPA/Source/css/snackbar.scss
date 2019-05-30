@@ -1,0 +1,16 @@
+.snackbar_container {
+	max-width: 800px;
+	> div {
+		background-color: rgb(42, 84, 128);
+	}
+}
+
+.snackbar_reverse > div {
+	flex-direction: column-reverse;
+}
+
+@media (min-width: 960px) {
+	.snackbar_container > div {
+		max-width: 800px;
+	}
+}

@@ -1,0 +1,71 @@
+@using AskodOnline.Editor.Helpers
+@using AskodOnline.Editor.Models
+@using DevExpress.Web.Office.Internal
+@using DevExpress.XtraSpreadsheet
+@using Resources
+@model FileModel
+
+@{
+    var transactionResult = (TransactionResult)ViewData["transactionResult"];
+    var editedDocumentCallbackModel = new { Model.FileName, Model.Counter, Model.AuthorId, Model.IsDocSign, Model.TeamworkId };
+}
+
+@Html.DevExpress().Spreadsheet(settings =>
+{
+    settings.Name = "spreadSheet_" + Model.TeamworkId;
+    settings.ClientSideEvents.BeginCallback = 
+        "function (s,e) {" +
+            "return Global.DocumentStore.setCustomAttributes(e)" +
+        "}";
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.ClientSideEvents.DocumentChanged = "function (s,e) { Global.SpreadSheetStore.DocumentChangedStatus = true; }";
+    settings.CallbackRouteValues = new { Controller = "SpreadSheet", Action = "CallbackSpreadsheetPartialNative", file = Json.Encode(editedDocumentCallbackModel) };
+    settings.CustomActionRouteValues = new {Controller = "SpreadSheet", Action = "CallbackSpreadsheetPartial"};
+    settings.Height = 870;
+    settings.AutoSaveMode = AutoSaveMode.On;
+    settings.AutoSaveTimeout = TimeSpan.FromSeconds(30);
+    settings.ReadOnly = false;
+    settings.RibbonMode = SpreadsheetRibbonMode.Ribbon;
+    settings.EnableClientSideAPI = true;
+    settings.Init = (s, e) =>
+    {
+        var sh = s as MVCxSpreadsheet;
+        sh.JSProperties["cpFileModel"] = editedDocumentCallbackModel;
+        sh.JSProperties["cpTransactionResult"] = transactionResult;
+        sh.CreateDefaultRibbonTabs(true);
+        var tab = sh.RibbonTabs.Find(t => t is SRFileTab);
+        var group = tab.Groups.Find(g => g is SRFileCommonGroup);
+        var saveBtn = new RibbonButtonItem {Name = "saveButton", Text = @Localization.SaveBtn, Size = RibbonItemSize.Large, ToolTip = @Localization.SaveBtnTooltip };
+        saveBtn.LargeImage.IconID = IconID.SaveSaveto32x32office2013;
+        group.Items.Add(saveBtn);
+        var undoAllBtn = new RibbonButtonItem { Name = "undoAllButton", Text = @Localization.UndoBtn, Size = RibbonItemSize.Large, ToolTip = @Localization.UndoBtnTooltip };
+        undoAllBtn.LargeImage.IconID = IconID.HistoryUndo32x32office2013;
+        group.Items.Add(undoAllBtn);
+    };
+    settings.ClientSideEvents.EndCallback =
+        "function(s,e) {" +
+            "Global.DocumentStore.CheckForIncomingNotifications();" +
+            "Global.DocumentStore.OverrideVendorSessionExpiredAlert();" +
+            "Global.DocumentStore.IsUndoOperationActive = false;" +
+        "}";
+    settings.ClientSideEvents.BeginSynchronization =
+        "function(s,e) {" +
+        "Global.DocumentStore.OverrideVendorSessionExpiredAlert();" +
+        "}";
+    settings.ClientSideEvents.EndSynchronization =
+        "function(s,e) {" +
+        "Global.DocumentStore.OverrideVendorSessionExpiredAlert();" +
+        "}";
+    settings.ClientSideEvents.CustomCommandExecuted = 
+        "function (s, e) {" +
+          "return Global.SpreadSheetStore.OnCustomBtnClick(e)" +
+        "}";
+    settings.FullscreenMode = false;
+    settings.ShowConfirmOnLosingChanges = false;
+    settings.Settings.Behavior.CreateNew = DocumentCapability.Hidden;
+    settings.Settings.Behavior.Open = DocumentCapability.Hidden;
+    settings.Settings.Behavior.Save = DocumentCapability.Hidden;
+    settings.Settings.Behavior.SaveAs = DocumentCapability.Hidden;
+    settings.SettingsDocumentSelector.UploadSettings.Enabled = true;
+    settings.SettingsDocumentSelector.UploadSettings.AutoStartUpload = true;
+}).Open("spreadSheet_" + Model.TeamworkId, new FileExtension().ResolveSpreadSheetFormat(Model.FileName), () => Model.TextFile).GetHtml()

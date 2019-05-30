@@ -1,0 +1,11 @@
+﻿@media all and (min-height: 900px) {
+    #Spreadsheet {
+        height: 800px;
+    }
+}
+
+@media all and (max-height: 700px) {
+    #Spreadsheet {
+        height: 500px;
+    }
+}

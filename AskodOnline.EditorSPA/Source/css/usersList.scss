@@ -1,0 +1,41 @@
+.users_list p.user_list_header {
+	font-size: large;
+	text-align: center;
+}
+
+.avatar {
+	width: 40px;
+	height: 40px;
+	margin-right: 20px;
+	margin-left: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 50%;
+}
+
+.user_record {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	p {
+		display: flex;
+		width: 100%;
+		> img {
+			align-self: center;
+			width: 45px;
+			height: 27px;
+			margin-left: auto;
+		}
+	}
+	b {
+		margin-right: 20px;
+		word-break: break-all;
+	}
+}
+
+.img_text_wrapper {
+	margin-bottom: 1rem;
+}
+
+.user_list_head_splitter {
+	border-top: 1px solid rgba(0, 0, 0, 0.18);
+}

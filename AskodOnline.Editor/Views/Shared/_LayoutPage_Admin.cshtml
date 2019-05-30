@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Администрирование</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+	@Scripts.Render("~/bundles/jquery")
+	@Styles.Render("~/Content/Admin_css")
+	@Styles.Render("~/Content/reactCss")
+</head>
+	<body>
+		<div id="ReactModal"></div>
+		<div id="ReactApp" class="ReactApp"></div>
+		@{
+			BundleTable.EnableOptimizations = false;
+			@Scripts.Render("~/bundles/reactApp");
+			BundleTable.EnableOptimizations = true;
+		}
+		@RenderSection("Scripts", required: false)
+	</body>
+</html>

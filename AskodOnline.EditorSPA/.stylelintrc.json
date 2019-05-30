@@ -1,0 +1,35 @@
+{
+	"extends": "stylelint-config-rational-order",
+	"rules": {
+		"font-family-no-missing-generic-family-keyword": null,
+		"block-no-empty": null,
+		"color-no-invalid-hex": true,
+		"comment-empty-line-before": [ 
+			"always", 
+			{
+				"ignore": ["stylelint-commands", "after-comment"]
+			} 
+		],
+		"indentation": [
+			"tab", 
+			{
+				"except": ["value"]
+			}
+		],
+		"declaration-block-semicolon-newline-after": "always",
+		"declaration-colon-space-before": "never",
+		"declaration-colon-space-after": "always",
+		"declaration-block-semicolon-space-before": "never",
+		"declaration-block-semicolon-space-after": "always-single-line",
+		"max-empty-lines": 1,
+		"rule-empty-line-before": [ 
+			"always-multi-line", 
+			{
+				"except": "inside-block"
+			} 
+		],
+		"declaration-empty-line-before": "never",
+		"unit-whitelist": ["px", "em", "rem", "%", "s", "deg"],
+		"selector-class-pattern": "^([a-z][a-z0-9]*)(_[a-z0-9]+)*$"
+	}
+}

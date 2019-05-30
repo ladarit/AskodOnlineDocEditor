@@ -1,0 +1,30 @@
+﻿@using System.Configuration
+@model AskodOnline.Editor.Models.FileModel
+
+@{
+	ViewBag.Title = "Edit";
+	var spreadSheet = "spreadSheet_" + Model.TeamworkId;
+	var user = new { Counter = ViewBag.userCounter };
+}
+
+@using (Html.BeginForm())
+{
+	@Html.Partial("_SpreadsheetPartial", Model)
+}
+
+@section Scripts
+{
+	<script>
+		var global = window.Global;
+		(function () {
+			debugger;
+			global.DocumentStore.Document = @spreadSheet;
+			var pingInterval = @ConfigurationManager.AppSettings["PingFileEditingInterval"];
+			global.WebConfigStore.AddWebConfigVariable({ name: "PingFileEditingInterval", value: pingInterval });
+			global.UserClaimsManager.Claims = @Html.Raw(Json.Encode(user));
+		})();
+		$(function () {
+			new global.SignalRManager(@spreadSheet).init();
+		});
+	</script>
+}

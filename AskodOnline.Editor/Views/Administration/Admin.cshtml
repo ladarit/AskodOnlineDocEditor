@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "AdminPage";
+    Layout = "~/Views/Shared/_LayoutPage_Admin.cshtml";
+}
+
+@section Scripts
+{
+    <script>
+		$(function () {
+            var global = window.Global;
+            global.Administration.SetAdministrationPageVisible();
+        });
+    </script>
+}

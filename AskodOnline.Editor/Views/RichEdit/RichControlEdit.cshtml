@@ -1,0 +1,29 @@
+﻿@using System.Configuration
+@model AskodOnline.Editor.Models.FileModel
+
+@{
+	ViewBag.Title = "Edit";
+	var richEdit = "richEdit_" + Model.TeamworkId;
+	var user = new { Counter = ViewBag.userCounter };
+}
+
+@using (Html.BeginForm())
+{
+	@Html.Partial("_RichControlEditPartial", Model)
+}
+
+@section Scripts
+{
+	<script>
+		var global = window.Global;
+		(function () {
+			debugger;
+			var pingInterval = @ConfigurationManager.AppSettings["PingFileEditingInterval"];
+			global.WebConfigStore.AddWebConfigVariable({ name: "PingFileEditingInterval", value: pingInterval });
+			global.UserClaimsManager.Claims = @Html.Raw(Json.Encode(user));
+		})();
+		$(function () {			
+			new global.SignalRManager(@richEdit).init();
+		});
+	</script>
+}

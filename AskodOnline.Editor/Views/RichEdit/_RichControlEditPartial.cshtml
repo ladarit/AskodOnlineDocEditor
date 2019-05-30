@@ -1,0 +1,83 @@
+@using AskodOnline.Editor.Helpers
+@using AskodOnline.Editor.Models
+@using DevExpress.Web.Office.Internal
+@using DevExpress.XtraRichEdit
+@using Resources
+@model FileModel
+
+@{
+    var transactionResult = (TransactionResult)ViewData["transactionResult"];
+    var editedDocumentCallbackModel = new { Model.FileName, Model.Counter, Model.AuthorId, Model.IsDocSign, Model.TeamworkId };
+    var richEdit = "richEdit_" + Model.TeamworkId;
+    //var currentCultureName = System.Globalization.CultureInfo.CurrentCulture.Name;
+    //var cacheKey = currentCultureName == "uk-UA" ? "ukDic" : (currentCultureName == "en-US" ? "enDic" : "ruDic");
+    //var dictPath = currentCultureName == "uk-UA" ? "uk_UA/uk_UA" : (currentCultureName == "en-US" ? "en_US/en_US" : "ru_RU/ru_RU");
+}
+
+@Html.DevExpress().RichEdit(settings =>
+{
+    settings.Name = richEdit;
+    settings.ClientSideEvents.BeginCallback =
+        "function (s,e) {" +
+            "return Global.RichEditStore.OnBeginCallBack(e);" +
+        "}";
+    settings.ClientSideEvents.EndSynchronization =
+        "function (s,e) {" +
+            "return Global.RichEditStore.OnEndSynchronization();" +
+        " }";
+    settings.ClientSideEvents.DocumentChanged =
+        "function (s,e) {" +
+            "Global.RichEditStore.DocumentChangedStatus = true; " +
+        "}";
+    settings.ClientSideEvents.DocumentLoaded =
+        "function(s,e) {" +
+        "Global.DocumentStore.Document = " + richEdit + ";" +
+        "return Global.RichEditStore.OnDocumentLoaded();" +
+        "}";
+    settings.ClientSideEvents.CustomCommandExecuted =
+        "function (s, e) {" +
+        "return Global.RichEditStore.OnCustomBtnClick(e);" +
+        "}";
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.CallbackRouteValues = new { Controller = "RichEdit", Action = "CallbackRichEditPartialNative", file = Json.Encode(editedDocumentCallbackModel) };
+    settings.CustomActionRouteValues = new { Controller = "RichEdit", Action = "CallbackRichEditPartial" };
+    settings.Height = 870;
+    settings.AutoSaveMode = AutoSaveMode.On;
+    settings.AutoSaveTimeout = TimeSpan.FromSeconds(30);
+    settings.ReadOnly = false;
+    settings.RibbonMode = RichEditRibbonMode.Ribbon;
+    settings.EnableClientSideAPI = true;
+    settings.Init = (s, e) =>
+    {
+        var sh = s as MVCxRichEdit;
+        sh.JSProperties["cpFileModel"] = editedDocumentCallbackModel;
+        sh.JSProperties["cpTransactionResult"] = transactionResult;
+        sh.CreateDefaultRibbonTabs(true);
+        var tab = sh.RibbonTabs.Find(t => t is RERFileTab);
+        var group = tab.Groups.Find(g => g is RERFileCommonGroup);
+        var saveBtn = new RibbonButtonItem { Name = "saveButton", Text = @Localization.SaveBtn, Size = RibbonItemSize.Large, ToolTip = @Localization.SaveBtnTooltip };
+        saveBtn.LargeImage.IconID = IconID.SaveSaveto32x32office2013;
+        group.Items.Add(saveBtn);
+        var undoAllBtn = new RibbonButtonItem { Name = "undoAllButton", Text = @Localization.UndoBtn, Size = RibbonItemSize.Large, ToolTip = @Localization.UndoBtnTooltip };
+        undoAllBtn.LargeImage.IconID = IconID.HistoryUndo32x32office2013;
+        group.Items.Add(undoAllBtn);
+    };
+    settings.ShowConfirmOnLosingChanges = false;
+    settings.Settings.Behavior.CreateNew = DocumentCapability.Hidden;
+    settings.Settings.Behavior.Open = DocumentCapability.Hidden;
+    settings.Settings.Behavior.Save = DocumentCapability.Hidden;
+    settings.Settings.Behavior.SaveAs = DocumentCapability.Hidden;
+    settings.SettingsDocumentSelector.UploadSettings.Enabled = true;
+    settings.SettingsDocumentSelector.UploadSettings.AutoStartUpload = true;
+    settings.Settings.Unit = RichEditUnit.Centimeter;
+    //settings.Settings.SpellChecker.Enabled = true;
+    //settings.Settings.SpellChecker.SuggestionCount = 4;
+    //settings.Settings.SpellChecker.Dictionaries.Add(new DevExpress.Web.ASPxSpellChecker.ASPxSpellCheckerOpenOfficeDictionary
+    //{
+    //    GrammarPath = "~/App_Data/Dictionaries/" + dictPath + ".aff",
+    //    DictionaryPath = "~/App_Data/Dictionaries/" + dictPath + ".dic",
+    //    Culture = new System.Globalization.CultureInfo(currentCultureName),
+    //    CacheKey = cacheKey
+    //}
+    //);
+}).Open(richEdit, new FileExtension().ResolveRichEditFormat(Model.FileName), () => Model.TextFile).GetHtml()

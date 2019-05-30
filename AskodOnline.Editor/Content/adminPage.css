@@ -1,0 +1,21 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+	min-height: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #e6e6e6 !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.ReactApp {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+}

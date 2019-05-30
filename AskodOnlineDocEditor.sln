@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskodOnline.Editor", "AskodOnline.Editor\AskodOnline.Editor.csproj", "{CCF5C340-5D87-4AD8-ADFE-1EC1CD980AA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskodOnline.DAL", "AskodOnline.DAL\AskodOnline.DAL.csproj", "{EC2641D8-616C-4461-B0F5-7D24DA83613F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskodOnline.Data", "AskodOnline.Data\AskodOnline.Data.csproj", "{FD908AA9-7BDA-4E57-8CE0-68E2F6DCB3B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskodOnline.Security", "AskodOnline.Security\AskodOnline.Security.csproj", "{D83E7B80-8D08-4A5E-B697-211C878AE39A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskodOnline.EditorSPA", "AskodOnline.EditorSPA\AskodOnline.EditorSPA.csproj", "{D7D9C726-8FA1-4066-AE6F-83CB1BCE40A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskodOnline.AdminDAL", "AskodOnline.AdminDAL\AskodOnline.AdminDAL.csproj", "{6314398F-A082-4845-A0A5-B2DB5A096CA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCF5C340-5D87-4AD8-ADFE-1EC1CD980AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF5C340-5D87-4AD8-ADFE-1EC1CD980AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF5C340-5D87-4AD8-ADFE-1EC1CD980AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF5C340-5D87-4AD8-ADFE-1EC1CD980AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC2641D8-616C-4461-B0F5-7D24DA83613F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2641D8-616C-4461-B0F5-7D24DA83613F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2641D8-616C-4461-B0F5-7D24DA83613F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2641D8-616C-4461-B0F5-7D24DA83613F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD908AA9-7BDA-4E57-8CE0-68E2F6DCB3B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD908AA9-7BDA-4E57-8CE0-68E2F6DCB3B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD908AA9-7BDA-4E57-8CE0-68E2F6DCB3B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD908AA9-7BDA-4E57-8CE0-68E2F6DCB3B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D83E7B80-8D08-4A5E-B697-211C878AE39A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83E7B80-8D08-4A5E-B697-211C878AE39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83E7B80-8D08-4A5E-B697-211C878AE39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83E7B80-8D08-4A5E-B697-211C878AE39A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D9C726-8FA1-4066-AE6F-83CB1BCE40A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D9C726-8FA1-4066-AE6F-83CB1BCE40A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D9C726-8FA1-4066-AE6F-83CB1BCE40A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6314398F-A082-4845-A0A5-B2DB5A096CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6314398F-A082-4845-A0A5-B2DB5A096CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6314398F-A082-4845-A0A5-B2DB5A096CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6314398F-A082-4845-A0A5-B2DB5A096CA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {7FE4D2B5-39B9-4607-86D3-1F7C7CE13FAF}
+	EndGlobalSection
+EndGlobal

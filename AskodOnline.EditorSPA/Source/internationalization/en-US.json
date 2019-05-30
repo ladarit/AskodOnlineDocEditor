@@ -1,0 +1,19 @@
+{
+	"en-US": {
+	  "translation": {
+		"documentChanged": "Save document in the database?",
+		"attention": "Attention",
+		"saveNewVersion": "Save as the new version",
+		"saveCurrentVersion": "Save current version",
+		"documentChangedPopUp": "The user {{name}} has made changes to the document. The document will be updated",
+		"cancelBtn": "Cancel",
+		"UserListHeader": "Users",
+		"saveCurrentVersionSussecced": "File successfully saved to database as current version",
+		"saveNewVersionSussecced": "File successfully saved to database as new version",
+		"loadLastSavedVersionSussecced": "The file has been returned to the last saved state",
+		"loadLastSavedVersionSusseccedForClients": "User {{name}} returned the file to the last saved state",
+		"Continue": "Continue",
+		"DocumentLostChanges": "In case of continuation, the document will be returned to the last saved status for all users who are currently working with the document."
+	  }
+	}
+  }

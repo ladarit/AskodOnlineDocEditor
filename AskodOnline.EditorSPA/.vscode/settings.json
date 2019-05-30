@@ -1,0 +1,6 @@
+{
+    "svn.delete.ignoredRulesForDeletedFiles": [
+        "Source\\store\\ajaxManager.ts",
+        "Source\\store\\authentication\\ICredentials.ts"
+    ]
+}

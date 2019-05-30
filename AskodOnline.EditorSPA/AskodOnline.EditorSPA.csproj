@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7D9C726-8FA1-4066-AE6F-83CB1BCE40A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AskodOnline.EditorSPA</RootNamespace>
+    <AssemblyName>AskodOnline.EditorSPA</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".babelrc" />
+    <None Include=".stylelintrc.json" />
+    <None Include="package.json" />
+    <None Include="Source\css\modal.scss" />
+    <None Include="Source\internationalization\en-US.json" />
+    <None Include="Source\internationalization\ru-RU.json" />
+    <None Include="Source\internationalization\uk-UA.json" />
+    <None Include="tsconfig.json" />
+    <None Include="tslint.json" />
+    <TypeScriptCompile Include="Source\components\ApiNotification\apiNotificator.tsx" />
+    <TypeScriptCompile Include="Source\components\dashboard\dashboard.tsx" />
+    <TypeScriptCompile Include="Source\components\dashboard\dbInspector.tsx" />
+    <TypeScriptCompile Include="Source\components\Dialogs\ConfirmDialog.tsx" />
+    <TypeScriptCompile Include="Source\components\Dialogs\IModalButton.ts" />
+    <TypeScriptCompile Include="Source\components\LoginForm\LoginForm.tsx" />
+    <TypeScriptCompile Include="Source\components\notification\IMessage.ts" />
+    <TypeScriptCompile Include="Source\components\notification\notificationDispatcher.tsx" />
+    <TypeScriptCompile Include="Source\components\notification\notificationPresenter.tsx" />
+    <TypeScriptCompile Include="Source\components\PageNumber\PageNumber.tsx" />
+    <TypeScriptCompile Include="Source\components\Portals\DialogPortal.tsx" />
+    <TypeScriptCompile Include="Source\components\UI\overlay.tsx" />
+    <TypeScriptCompile Include="Source\components\UI\snackbar.tsx" />
+    <TypeScriptCompile Include="Source\components\UsersList\UsersList.tsx" />
+    <TypeScriptCompile Include="Source\components\UserView\IUserInfo.ts" />
+    <TypeScriptCompile Include="Source\components\UserView\UserInfo.ts" />
+    <TypeScriptCompile Include="Source\components\UserView\UserView.tsx" />
+    <TypeScriptCompile Include="Source\containers\Admin.tsx" />
+    <TypeScriptCompile Include="Source\containers\AppsContainer.tsx" />
+    <TypeScriptCompile Include="Source\containers\DocumentsEditor.tsx" />
+    <TypeScriptCompile Include="Source\css\modal.scss.d.ts" />
+    <TypeScriptCompile Include="Source\helper\timeoutBasedPromise.ts" />
+    <None Include="Source\interfaces\IJquery.ts" />
+    <TypeScriptCompile Include="Source\index.tsx" />
+    <TypeScriptCompile Include="Source\interfaces\IWindow.ts" />
+    <TypeScriptCompile Include="Source\store\administration\AdministrationStore.ts" />
+    <TypeScriptCompile Include="Source\store\authentication\AuthStore.ts" />
+    <TypeScriptCompile Include="Source\store\authentication\IsAuthenticated.ts" />
+    <TypeScriptCompile Include="Source\store\authentication\TokenStore.ts" />
+    <TypeScriptCompile Include="Source\store\axios\axiosInstance.ts" />
+    <TypeScriptCompile Include="Source\store\CookieStore.ts" />
+    <TypeScriptCompile Include="Source\store\CultureStore.ts" />
+    <TypeScriptCompile Include="Source\store\document\DocumentStore.ts" />
+    <TypeScriptCompile Include="Source\store\document\interfaces\ICallbackDocument.ts" />
+    <TypeScriptCompile Include="Source\store\document\interfaces\IVendorDocument.ts" />
+    <TypeScriptCompile Include="Source\store\document\RichEditStore.ts" />
+    <TypeScriptCompile Include="Source\store\document\SpreadSheetStore.ts" />
+    <TypeScriptCompile Include="Source\store\mutationObserver\IObserverConfiguration.ts" />
+    <TypeScriptCompile Include="Source\store\mutationObserver\MutationObserverStore.ts" />
+    <TypeScriptCompile Include="Source\store\notification\NotificationStore.ts" />
+    <TypeScriptCompile Include="Source\store\redux\actions.ts" />
+    <TypeScriptCompile Include="Source\store\redux\actionsDispatcher.ts" />
+    <TypeScriptCompile Include="Source\store\redux\reduxStore.ts" />
+    <TypeScriptCompile Include="Source\store\signalR\signalRStore.ts" />
+    <TypeScriptCompile Include="Source\store\userClaimsManager.ts" />
+    <TypeScriptCompile Include="Source\store\webConfigStore.ts" />
+    <TypeScriptCompile Include="Source\store\worker\workerStore.ts" />
+    <TypeScriptCompile Include="Source\workers\pingFileEditingWorker.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\css\App.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\css\Overlay.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\css\pageNumber.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\css\snackbar.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\css\UsersList.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webpack.dev.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="webpack.prod.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
