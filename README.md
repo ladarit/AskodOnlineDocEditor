@@ -1,1 +1,1 @@
-AskodOnlineDocEditor
+DocEditor
