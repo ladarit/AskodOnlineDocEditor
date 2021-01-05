@@ -78,7 +78,7 @@
 		"@types/react-modal": "^3.2.1",
 		"@types/react-redux": "^6.0.9",
 		"@types/uniqid": "^4.1.2",
-		"axios": "^0.18.0",
+		"axios": "^0.21.1",
 		"css-loader": "^1.0.0",
 		"detect-browser": "^4.5.0",
 		"i18next": "^11.9.0",
